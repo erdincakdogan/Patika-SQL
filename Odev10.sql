@@ -1,9 +1,8 @@
-SELECT first_name,last_name from customer
-INNER JOIN rental ON customer.customer_id=rental.customer_id;
+SELECT city, country FROM city
+LEFT JOIN country ON country.country_id =city.country_id;
 
-Select first_name,last_name,COUNT(*) FROM payment
-RIGHT JOIN customer ON customer.customer_id=payment.customer_id
-Group by customer.first_name,customer.last_name;
+SELECT payment.payment_id,customer.first_name,customer.last_name FROM customer
+RIGHT JOIN payment ON payment.customer_id = customer.customer_id;
 
-Select first_name,last_name FROM customer
-FULL JOIN rental ON customer.customer_id = rental.customer_id;
+SELECT rental.rental_id, customer.first_name, customer.last_name FROM customer
+FULL JOIN rental ON rental.customer_id = customer.customer_id;
